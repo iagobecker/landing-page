@@ -1,8 +1,8 @@
 "use client"
 
 import useEmblaCarousel from 'embla-carousel-react'
-import { ChevronLeft, ChevronRight, Scissors, Syringe, CarTaxiFront, Hotel, Clock } from 'lucide-react'
 import { WhatsappLogo } from '@phosphor-icons/react'
+import { ChevronLeft, ChevronRight, Scissors, Syringe, CarTaxiFront, Hotel, Clock  } from 'lucide-react'
 
 const services = [
   {
@@ -71,7 +71,7 @@ export function Services() {
             <div className='flex'>
               {services.map((item, index) => (
                 <div key={index} className="flex-[0_0_100%] min-w-0 md:flex-[0_0_calc(100%/3)] px-3">
-                  <article className="bg-[#1e293b] text-white rounded-2xl p-6 space-y-4 h-full flex flex-col">
+                  <article className="border-2 border-gray-100  bg-wihite text-black rounded-2xl p-6 space-y-4 h-full flex flex-col">
                     <div className='flex-1 flex items-start justify-between'>
 
                       <div className='flex gap-3'>
@@ -94,8 +94,8 @@ export function Services() {
 
                       <a
                         target='_blank'
-                        href={`https://wa.me/556799998800?text=Olá vim pelo site e gostaria de mais informações sbore ${item.title}`}
-                        className='flex items-center justify-center gap-2 hover:bg-red-500 px-4 py-1 rounded-md duration-300'
+                        href={`https://api.whatsapp.com/send/?phone=5555991003912&text&type=phone_number&app_absent=0${item.title}`}
+                        className='flex items-center justify-center gap-2 hover:bg-green-500 px-4 py-1 rounded-md duration-300'
                       >
                         <WhatsappLogo className='w-5 h-5' />
                         Entrar em contato
