@@ -1,131 +1,83 @@
-"use client"
+  "use client";
 
-import useEmblaCarousel from 'embla-carousel-react'
-import { WhatsappLogo } from '@phosphor-icons/react'
-import { ChevronLeft, ChevronRight, Scissors, Syringe, CarTaxiFront, Hotel, Clock  } from 'lucide-react'
+  import Image from "next/image";
 
-const services = [
-  {
-    title: "Banho & Tosa",
-    description: "Inclui banho com produtos específicos para o tipo de pelagem e pele do animal, corte de unhas, limpeza das orelhas e tosa personalizada (higiênica ou estilizada).",
-    duration: "1h",
-    price: "$50",
-    icon: <Scissors />,
-    linkText: 'Olá, vi no site sobre Banho e tosa e gostaria de mais informações.'
-  },
-  {
-    title: "Consulta Veterinária",
-    description: "Oferece atendimento clínico básico ou especializado para cuidar da saúde do animal. Inclui diagnóstico de doenças, aplicação de vacinas obrigatórias.",
-    duration: "1h",
-    price: "$45",
-    icon: <Syringe />,
-    linkText: 'Olá, vi no site sobre Consulta veterinária e gostaria de mais informações.'
-  },
-  {
-    title: "Táxi Pet",
-    description: "Serviço de transporte para levar e buscar os pets no petshop, clínicas veterinárias ou outros locais. Ideal para tutores que não têm tempo ou transporte adequado para locomover os animais.",
-    duration: "2h",
-    price: "$80",
-    icon: <CarTaxiFront />,
-    linkText: 'Olá, vi no site sobre Táxi Pet e gostaria de mais informações.'
-  },
-  {
-    title: "Hotel para pets",
-    description: "Serviço de hospedagem para animais de estimação, ideal para quando os tutores precisam viajar ou se ausentar por alguns dias. Os pets ficam acomodados em espaços seguros, confortáveis.",
-    duration: "1h",
-    price: "$60",
-    icon: <Hotel />,
-    linkText: 'Olá, vi no site sobre Hotel para pets e gostaria de mais informações.'
-  },
-]
+  // Garanta que os caminhos para suas imagens estejam corretos
 
-export function Services() {
-
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: false,
-    align: "start",
-    slidesToScroll: 1,
-    breakpoints: {
-      "(min-width: 768px)": { slidesToScroll: 3 }
-    }
-  })
-
-
-  function scrollPrev() {
-    emblaApi?.scrollPrev();
-  }
-
-  function scrollNext() {
-    emblaApi?.scrollNext();
-  }
-
-  return (
-    <section className="bg-white py-16">
-      <div className="container mx-auto px-4">
-
-        <h2 className="text-4xl font-bold mb-12">Serviços</h2>
-
-        <div className="relative">
-
-          <div className='overflow-hidden' ref={emblaRef}>
-            <div className='flex'>
-              {services.map((item, index) => (
-                <div key={index} className="flex-[0_0_100%] min-w-0 md:flex-[0_0_calc(100%/3)] px-3">
-                  <article className="border-2 border-gray-100  bg-wihite text-black rounded-2xl p-6 space-y-4 h-full flex flex-col">
-                    <div className='flex-1 flex items-start justify-between'>
-
-                      <div className='flex gap-3'>
-                        <span className='text-3xl'>{item.icon}</span>
-                        <div>
-                          <h3 className='font-bold text-xl my-1'>{item.title}</h3>
-                          <p className='text-gray-400 text-sm select-none'>
-                            {item.description}
-                          </p>
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <div className='border-t border-gray-700 pt-4 flex items-center justify-between'>
-                      <div className='flex items-center gap-2 text-sm'>
-                        <Clock className='w-4 h-4' />
-                        <span>{item.duration}</span>
-                      </div>
-
-                      <a
-                        target='_blank'
-                        href={`https://api.whatsapp.com/send/?phone=5555991003912&text&type=phone_number&app_absent=0${item.title}`}
-                        className='flex items-center justify-center gap-2 hover:bg-green-500 px-4 py-1 rounded-md duration-300'
-                      >
-                        <WhatsappLogo className='w-5 h-5' />
-                        Entrar em contato
-                      </a>
-
-                    </div>
-
-                  </article>
-                </div>
-              ))}
-            </div>
+  export function Services() {
+    return (
+      <section id="servicos" className="bg-[#F8F5F2] py-24 sm:py-32">
+        <div className="container mx-auto px-4">
+          {/* Seção de Títulos */}
+          <div className="text-center mx-auto max-w-2xl mb-20">
+            <p className="text-base font-semibold leading-7 text-gray-500 uppercase tracking-widest">
+              Nossa Essência
+            </p>
+            <h2 className="mt-2 text-4xl font-bold tracking-tight text-[#3a3a3a] sm:text-5xl font-serif">
+              O que nos Inspira
+            </h2>
           </div>
 
-          <button
-            className='bg-white flex items-center justify-center rounded-full shadow-lg w-10 h-10 absolute left-3 -translate-y-1/2 -translate-x-1/2 top-1/2 z-10'
-            onClick={scrollPrev}
-          >
-            <ChevronLeft className='w-6 h-6 text-gray-600' />
-          </button>
+          {/* Layout Principal com Sobreposição */}
+          <div className="relative max-w-7xl mx-auto lg:flex lg:items-center">
+            
+            {/* COLUNA DA IMAGEM (ESQUERDA) */}
+            {/* A imagem ocupa 60% da largura em telas grandes */}
+            <div className="relative w-full lg:w-3/5 h-[600px] lg:h-[700px] rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src={''}
+                alt="Casal elegante posando ao ar livre durante um ensaio fotográfico"
+                fill
+                quality={100}
+                className="object-cover"
+              />
+            </div>
 
-          <button
-            className='bg-white flex items-center justify-center rounded-full shadow-lg w-10 h-10 absolute -right-6 -translate-y-1/2 -translate-x-1/2 top-1/2 z-10'
-            onClick={scrollNext}
-          >
-            <ChevronRight className='w-6 h-6 text-gray-600' />
-          </button>
+            {/* COLUNA DO CARD DE TEXTO (DIREITA) */}
+            {/* Em telas grandes, este card irá sobrepor a imagem da esquerda */}
+            <div className="relative w-full lg:w-1/2 mt-[-100px] lg:mt-0 lg:ml-[-15%] z-10">
+              <div className="bg-[#FDFBF9]/90 backdrop-blur-sm border border-black/5 shadow-2xl rounded-2xl p-8 sm:p-14 text-center lg:text-left">
+                
+                {/* Decoração Superior */}
+                <div className="flex justify-center lg:justify-start">
+                  <Image
+                    src={''}
+                    alt="Decoração floral"
+                    width={90}
+                    height={50}
+                    className="opacity-80"
+                  />
+                </div>
+                
+                {/* Conteúdo Principal de Texto */}
+                <div className="my-8">
+                  <h3 className="font-serif text-4xl sm:text-5xl text-[#52463a] leading-tight">
+                    Creative,
+                    <br />
+                    Passionate &
+                    <br />
+                    Artistic
+                  </h3>
+                  <p className="mt-6 text-base text-gray-600 max-w-md mx-auto lg:mx-0">
+                    Cada momento é uma obra de arte esperando para ser capturada. Nossa paixão é transformar suas memórias em tesouros visuais que durarão para sempre.
+                  </p>
+                </div>
 
+                {/* Decoração Inferior */}
+                <div className="flex justify-center lg:justify-end">
+                  <Image
+                    src={''}
+                    alt="Decoração floral"
+                    width={70}
+                    height={40}
+                    className="opacity-80 transform -scale-x-100" // Espelha a imagem horizontalmente
+                  />
+                </div>
+
+              </div>
+            </div>
+          </div>
         </div>
-
-      </div>
-    </section>
-  )
-}
+      </section>
+    );
+  }

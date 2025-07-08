@@ -1,106 +1,180 @@
-import golden from "../../../public/golden.png";
-import royal from "../../../public/royal.png";
-import primier from "../../../public/primier.png";
-import whiskas from "../../../public/whiskas.png";
-import natural from "../../../public/natural.png";
+"use client"; // 1. Converte para Client Component
+
 import Image from "next/image";
+import Link from "next/link"; // 2. Importa o Link do Next.js
 import {
-  //FacebookLogo,
   InstagramLogo,
-  //YoutubeLogo,
+  WhatsappLogo,
+  // FacebookLogo,
+  // TwitterLogo,
+  // YoutubeLogo,
 } from "@phosphor-icons/react/dist/ssr";
 
-const brands = [
-  { name: "Royal Canin", logo: royal },
-  { name: "Golden", logo: golden },
-  { name: "Primier", logo: primier },
-  { name: "Formula Natural", logo: natural },
-  { name: "Whiskas", logo: whiskas },
-  { name: "Golden", logo: golden },
+const leftNavItems = [
+  { name: "Home", href: "/#hero" },
+  { name: "Portfolio", href: "/portfolio" }, // Aponta para o ID da seção Hero
+  { name: "Sobre", href: "/#sobre" },
 ];
 
+const rightNavItems = [
+  { name: "Inspiração", href: "/#servicos" },
+  { name: "Depoimentos", href: "/#depoimentos" },
+  { name: "Contato", href: "#contato" }, // Aponta para o próprio footer
+];
+
+const socialLinks = {
+  // facebook: "#",
+  // twitter: "#",
+  // youtube: "#",
+  instagram: "https://www.instagram.com/brunapaulafotografia.ph/",
+  whatsapp:
+    "https://wa.me/555591003912?text=Olá, gostaria de mais informações sobre os serviços.",
+};
+
 export function Footer() {
+  // 3. Função para lidar com a rolagem suave
+  const handleScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    // Se o link for para outra página, não fazemos nada aqui.
+    if (!href.startsWith("#") && !href.startsWith("/#")) {
+      return;
+    }
+
+    // Se o link for para a página atual (começa com #) ou para a home (começa com /#)
+    e.preventDefault();
+    const targetId = href.replace(/.*#/, "");
+    const elem = document.getElementById(targetId);
+
+    if (elem) {
+      // Se o elemento existe na página atual, rola suavemente até ele
+      const offsetPosition = elem.offsetTop - 100; // Desconta 100px para o offset do header
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    } else {
+      // Se o elemento não existe (ex: está em outra página), navega para a URL
+      window.location.href = href;
+    }
+  };
+
   return (
-    <section className="bg-[#52463a] py-16 text-white">
-      <div className="container mx-auto px-4">
-        <div className="border-b border-white/20 pb-8">
-          <h4 className="text-3xl font-semibold mb-8 text-center">
-            Marcas que trabalhamos
-          </h4>
-
-          <div className="grid grid-cols-2 lg:grid-cols-6 gap-8">
-            {brands.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white p-4 rounded-lg flex items-center justify-center"
-              >
-                <Image
-                  src={item.logo}
-                  alt={item.name}
-                  width={100}
-                  height={50}
-                  quality={100}
-                  style={{
-                    width: "auto",
-                    height: "auto",
-                  }}
-                  className="object-contain"
-                />
-              </div>
+    <footer id="contato" className="bg-[#eeeded] text-gray-700">
+      <div className="container mx-auto px-4 py-3 sm:py-5">
+        <nav className="flex items-center justify-between w-full">
+          {/* Links da Esquerda */}
+          <ul className="hidden md:flex items-center gap-x-16">
+            {leftNavItems.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={item.href}
+                  onClick={(e) => handleScroll(e, item.href)}
+                  className="text-md font-bold tracking-widest uppercase text-gray-600 hover:text-[#a7927a] transition-colors cursor-pointer"
+                >
+                  {item.name}
+                </a>
+              </li>
             ))}
-          </div>
-        </div>
+          </ul>
 
-        <footer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 mt-5">
-          <div>
-            <h3 className="text-2xl font-semibold mb-2">Pet Shop Dev</h3>
-            <p className="mb-4">
-              Cuidando do seu melhor amigo com amor e dedicação.
-            </p>
+          {/* Logo Central */}
+          <div className="justify-center items-center mx-auto md:mx-0 max-w-[250px]">
+            <Link href="/#hero" scroll={false}>
+              <Image
+                src="https://res.cloudinary.com/dwucy4ffg/image/upload/v1750726608/logo_lgs4dx.png"
+                alt="Logo da Tessa Morgan Photography"
+                quality={100}
+                width={1200}
+                height={400}
+              />
+            </Link>
+          </div>
+
+          {/* Links da Direita */}
+          <ul className="hidden md:flex items-center gap-x-9">
+            {rightNavItems.map((item) => (
+              <li key={item.name}>
+                {/* Usamos o componente Link para navegação entre páginas */}
+                {item.href.startsWith("/") && !item.href.includes("#") ? (
+                  <Link
+                    href={item.href}
+                    className="text-md font-bold tracking-widest uppercase text-gray-600 hover:text-[#a7927a] transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <a
+                    href={item.href}
+                    onClick={(e) => handleScroll(e, item.href)}
+                    className="text-md font-bold tracking-widest uppercase text-gray-600 hover:text-[#a7927a] transition-colors cursor-pointer"
+                  >
+                    {item.name}
+                  </a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* --- RESTANTE DO CONTEÚDO --- */}
+        <div className="flex flex-col items-center text-center gap-5 mt-2">
+          <p className="max-w-xl font-serif text-lg text-gray-500">
+            Fotografa profissional especializada em capturar momentos únicos e
+            inesquecíveis. Com um olhar atento aos detalhes e uma paixão pela vida,
+            estou aqui para transformar suas memórias em imagens que contam histórias
+            e refletem a essência de cada momento especial.
+          </p>
+          <div className="flex gap-3">
+            {/* Ícones de redes sociais
+            <a href={socialLinks.facebook} target="_blank" aria-label="Facebook">
+              <div className="bg-[#a7927a] text-white p-2 rounded-full hover:opacity-80 transition-opacity">
+                <FacebookLogo size={20} />
+              </div>
+            </a>
+            <a href={socialLinks.twitter} target="_blank" aria-label="Twitter">
+              <div className="bg-[#a7927a] text-white p-2 rounded-full hover:opacity-80 transition-opacity">
+                <TwitterLogo size={20} />
+              </div>
+            </a>
+            <a href={socialLinks.youtube} target="_blank" aria-label="YouTube">
+              <div className="bg-[#a7927a] text-white p-2 rounded-full hover:opacity-80 transition-opacity">
+                <YoutubeLogo size={20} />
+              </div>
+            </a> */}
             <a
-              data-aos="fade-up"
-              data-aos-delay="500"
+              href={socialLinks.instagram}
               target="_blank"
-              href={`https://api.whatsapp.com/send/?phone=5555991003912&text&type=phone_number&app_absent=0`}
-              className="bg-green-500 px-5 py-2 text-white rounded-md font-semibold flex items-center justify-center w-fit gap-2"
+              aria-label="Instagram"
             >
-              Contato via WhatsApp
+              <div className="bg-[#a7927a] text-white p-2 rounded-full hover:opacity-80 transition-opacity">
+                <InstagramLogo size={20} />
+              </div>
+            </a>
+
+            <a
+              href={socialLinks.whatsapp}
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <div className="bg-[#a7927a] text-white p-2 rounded-full hover:opacity-80 transition-opacity">
+                <WhatsappLogo size={20} />
+              </div>
             </a>
           </div>
-
-          <div>
-            <h3 className="text-2xl font-semibold mb-2">Contatos</h3>
-            <p>Email: brunapaulawilk@gmail.com</p>
-            <p>Telefone: (55) 91003912</p>
-            <p>R. Getúlio Vargas, 557 - CENTRO - Passo de Torres - SC</p>
-          </div>
-
-          <div>
-            <h3 className="text-2xl font-semibold mb-2">Redes sociais</h3>
-            <div className="flex gap-4">
-              {/* <a href="#" target="_blank">
-                <FacebookLogo className="w-8 h-8" />
-              </a> */}
-              <a href="https://www.instagram.com/brunapaulafotografia.ph/" target="_blank">
-                <InstagramLogo className="w-8 h-8" />
-              </a>
-              {/* <a href="#" target="_blank">
-                <YoutubeLogo className="w-8 h-8" />
-              </a> */}
-            </div>
-          </div>
-          <div id="mapa" className="mt-6 w-full">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3485.660136979624!2d-49.72103562369688!3d-29.08581777553587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95226f7a6a4a1b9f%3A0x6a13d7e35b0d01c0!2sR.%20Get%C3%BAlio%20Vargas%2C%20557%20-%20Centro%2C%20Passo%20de%20Torres%20-%20SC%2C%2088980-000!5e0!3m2!1spt-BR!2sbr!4v1718553147321!5m2!1spt-BR!2sbr"
-              style={{ border: 0 }}
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-80 rounded-lg shadow-md"
-            ></iframe>
-          </div>
-        </footer>
+          <p className="text-sm text-gray-500 pt-5">
+            Copyright {new Date().getFullYear()} Todos os direitos reservados.
+            Feito por{" "}
+            <a
+              href="https://www.instagram.com/iago.mendoncaw/"
+              className="font-bold hover:text-orange-800"
+            >
+              <span>Iago Becker</span>
+            </a>
+          </p>
+        </div>
       </div>
-    </section>
+    </footer>
   );
 }
