@@ -16,7 +16,7 @@
 //           className="object-cover object-center" // Ajustado para 'object-center' para melhor enquadramento em mobile
 //         />
 //       </div>
-      
+
 //       {/* Overlay para escurecer a imagem e melhorar a legibilidade do texto */}
 //       <div className="absolute inset-0 bg-black/30"></div>
 
@@ -74,7 +74,7 @@ import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay"; // 1. Importa o plugin
 import { portfolioItems } from "@/lib/portfolio-data";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 export function Hero() {
   // 2. Adiciona o plugin Autoplay à configuração do carrossel
@@ -101,7 +101,7 @@ export function Hero() {
       <div className="relative w-full max-w-[1920px] mx-auto">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex">
-            {portfolioItems.map((item) => (
+            {portfolioItems.map((item) => item.coverImage ? (
               <div
                 key={item.id}
                 className="flex-[0_0_80%] sm:flex-[0_0_45%] md:flex-[0_0_33.33%] lg:flex-[0_0_20%] min-w-0 pl-4"
@@ -119,7 +119,7 @@ export function Hero() {
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </div>
-            ))}
+            ) : null)}
           </div>
         </div>
 
@@ -138,6 +138,16 @@ export function Hero() {
         >
           <ChevronRight size={24} />
         </button>
+      </div>
+      <div className="mt-16 flex pr-6 justify-end">
+        {/* Trocamos a tag <a> por <Link> e ajustamos o href */}
+        <Link
+          href="/portfolio"
+          className="border border-black inline-flex items-center gap-2 bg-[#eae0d5] text-gray-700 font-semibold px-6 py-3 rounded-md hover:bg-opacity-80 transition-all"
+        >
+          Ver Galeria
+          <ArrowRight size={16} />
+        </Link>
       </div>
     </section>
   );

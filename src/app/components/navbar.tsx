@@ -8,7 +8,7 @@ import Link from "next/link";
 // Array de navegação com o href para "Sobre" corrigido
 const navItems = [
   { name: "Home", href: "#hero" },
-  { name: "Portfolio", href: "#portfolio" },
+  { name: "Estudio", href: "#portfolio" },
   { name: "Sobre", href: "#sobre" }, // CORRIGIDO de #about para #sobre
   { name: "Inspiração", href: "#servicos" },
   { name: "Depoimentos", href: "#depoimentos" },

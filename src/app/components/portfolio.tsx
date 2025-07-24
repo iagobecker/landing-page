@@ -12,10 +12,10 @@ export function Portfolio() {
         {/* === TÍTULOS DA SEÇÃO === */}
         <div className="text-center max-w-2xl mx-auto">
           <p className="text-base font-semibold leading-7 text-gray-500 uppercase tracking-widest">
-            Portfolio
+            Estudio
           </p>
           <h2 className="mt-2 text-4xl font-bold text-[#3a3a3a] sm:text-5xl font-serif">
-            História em destaque
+            Criado para destacar sua presença.
           </h2>
         </div>
 
@@ -47,7 +47,7 @@ export function Portfolio() {
               {/* Imagem 1 */}
               <div className="relative w-1/2 aspect-[3/4] rounded-lg overflow-hidden shadow-md">
                 <Image
-                  src={''}
+                  src={'https://res.cloudinary.com/dwucy4ffg/image/upload/v1753311728/estudio_xyjoqp.jpg'}
                   alt="Retrato de uma mulher sorrindo"
                   fill
                   className="object-cover"
@@ -56,7 +56,7 @@ export function Portfolio() {
               {/* Imagem 2 (um pouco mais baixa para criar efeito) */}
               <div className="relative w-1/2 aspect-[3/4] rounded-lg overflow-hidden shadow-md mt-16">
                 <Image
-                  src={''}
+                  src={'https://res.cloudinary.com/dwucy4ffg/image/upload/v1753312372/IMG_4035_bsrk5u.jpg'}
                   alt="Retrato de uma mulher com flores"
                   fill
                   className="object-cover"
@@ -65,13 +65,13 @@ export function Portfolio() {
             </div>
 
             {/* Botão "View Gallery" */}
-            <div className="mt-8 flex justify-end">
+            <div className="mt-8 mr-8 flex justify-end">
               {/* Trocamos a tag <a> por <Link> e ajustamos o href */}
               <Link
-                href="/portfolio"
+                href="/estudio"
                 className="border border-black inline-flex items-center gap-2 bg-[#eae0d5] text-gray-700 font-semibold px-6 py-3 rounded-md hover:bg-opacity-80 transition-all"
               >
-                Ver Galeria
+                Ver Estudio
                 <ArrowRight size={16} />
               </Link>
             </div>
