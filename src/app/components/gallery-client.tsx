@@ -72,8 +72,22 @@ export function GalleryClient({ item, moreWorks }: GalleryClientProps) {
 
         <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {images.map((img, idx) => (
-            <button key={img.id} className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-md cursor-pointer group block w-full text-left" onClick={() => { setIndex(idx); setOpen(true); }}>
-              <Image src={img.src} alt={img.alt} width={img.width} height={img.height} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105" />
+            <button
+              key={img.id}
+              className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-md cursor-pointer group block w-full text-left"
+              onClick={() => {
+                setIndex(idx);
+                setOpen(true);
+              }}
+              aria-label={`Ver imagem ${img.alt} em tela cheia`}
+              >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={img.width}
+                height={img.height}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105" />
               <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </button>
           ))}

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
 import { Check } from "lucide-react";
-import sobreIMG from "../../../public/sobre.jpg";
 import sobre02IMG from "../../../public/sobre02.jpg";
 
 export function Sobre() {
@@ -16,7 +15,7 @@ export function Sobre() {
           >
             <div className="relative w-full h-[700px] rounded-3xl overflow-hidden">
               <Image
-                src={sobreIMG}
+                src={sobre02IMG}
                 alt="Foto do cachorro"
                 fill
                 quality={100}
@@ -25,19 +24,19 @@ export function Sobre() {
               />
             </div>
 
-            <div
+            {/* <div
               className="absolute right-4 -bottom-8 border-4 overflow-hidden rounded-lg border-white"
               style={{ width: 160, height: 160 }}
             >
               <Image
-                src={sobre02IMG}
+                src={sobreIMG}
                 alt="Foto do cachorro 2"
                 fill
                 quality={100}
                 priority
                 className="object-contain"
               />
-            </div>
+            </div> */}
           </div>
 
           <div

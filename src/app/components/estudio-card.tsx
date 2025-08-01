@@ -3,16 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface EstudioCardProps {
-  id: number;
   image: {
     src: string;
     width: number;
     height: number;
   };
-  alt?: string | undefined;
+  alt?: string ;
 }
 
-export function EstudioCard({ id, image, alt }: EstudioCardProps) {
+export function EstudioCard({ image, alt }: EstudioCardProps) {
   // O link agora pode ser dinâmico. Ex: abrir a imagem em tela cheia ou ir para uma página de detalhes.
   // Usar o 'src' da imagem como href para abrir a imagem diretamente é uma opção simples.
   return (

@@ -32,7 +32,6 @@ export default function EstudioPage() {
               {estudioItems.map((item) => (
                 <EstudioCard
                   key={item.id}
-                  id={item.id}
                   // Passando o objeto da imagem e o alt separadamente
                   image={{
                     src: item.src,
