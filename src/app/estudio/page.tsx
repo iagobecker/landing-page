@@ -16,7 +16,7 @@ export default function EstudioPage() {
                 Estudio
               </p>
               <h1 className="mt-2 text-4xl font-bold text-[#3a3a3a] sm:text-5xl">
-                FOTOS DO ESTÚDIO
+                O ESTÚDIO
               </h1>
               <div className="mb-12 mt-4">
                 <Link
@@ -27,6 +27,7 @@ export default function EstudioPage() {
                   <span>Voltar</span>
                 </Link>
               </div>
+             
             </div>
             <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-16">
               {estudioItems.map((item) => (

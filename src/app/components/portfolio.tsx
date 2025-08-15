@@ -31,12 +31,14 @@ export function Portfolio() {
             {/* Conteúdo de texto */}
             <div className="relative z-10">
               <h3 className="text-4xl sm:text-5xl font-serif text-[#52463a]">
-                Confira alguns dos meus trabalhos
+                Criado para destacar sua presença.
               </h3>
               <p className="mt-4 text-base text-gray-600 max-w-md mx-auto lg:mx-0">
-                Lorem ipsum dolor sit amet consectetur. Dignissim consectetur
-                tristique purus vehicula felis velit.
+                Cada detalhe do estúdio foi pensado para oferecer uma experiência versátil, inspiradora e acolhedora. Um espaço com personalidade, texturas, contraste e muita luz natural. Um ambiente que se transforma de acordo com cada história, cada cliente, cada propósito.
+                Você pode trazer elementos que representem seu universo — objetos, peças, referências. Mas também pode confiar na curadoria que já faz parte daqui: tudo foi escolhido com intenção para potencializar o seu ensaio.
+                Do clima à mobília, tudo aqui tem um porquê: valorizar sua essência e dar espaço para que sua imagem seja registrada com autenticidade, verdade e direção estratégica.
               </p>
+
             </div>
           </div>
 

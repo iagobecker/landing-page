@@ -54,7 +54,7 @@ export function GalleryClient({ item, moreWorks }: GalleryClientProps) {
         </header>
 
         {item.coverImage && (
-          <div className="mt-16 relative w-full max-w-[900px] mx-auto aspect-[16/9] max-h-[600px] rounded-lg overflow-hidden shadow-lg">
+          <div className="mt-16 relative w-full max-w-[900px] mx-auto aspect-[16/9] max-h-[600px] rounded-lg overflow-hidden ">
             <Image
               src={item.coverImage.src}
               alt={item.alt}

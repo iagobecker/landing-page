@@ -25,7 +25,7 @@
             {/* A imagem ocupa 60% da largura em telas grandes */}
             <div className="relative w-full lg:w-3/5 h-[600px] lg:h-[700px] rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src={''}
+                src={'https://res.cloudinary.com/dwucy4ffg/image/upload/v1753311728/estudio_xyjoqp.jpg'}
                 alt="Casal elegante posando ao ar livre durante um ensaio fotográfico"
                 fill
                 quality={100}
@@ -41,22 +41,22 @@
                 {/* Decoração Superior */}
                 <div className="flex justify-center lg:justify-start">
                   <Image
-                    src={''}
+                    src={'https://res.cloudinary.com/dwucy4ffg/image/upload/v1750718075/Rafa_-_fotos_prontas-38_1_gt4qra.jpg'}
                     alt="Decoração floral"
-                    width={90}
-                    height={50}
-                    className="opacity-80"
+                    width={120}
+                    height={100}
+                    className="opacity-80 rounded-2xl"
                   />
                 </div>
                 
                 {/* Conteúdo Principal de Texto */}
                 <div className="my-8">
                   <h3 className="font-serif text-4xl sm:text-5xl text-[#52463a] leading-tight">
-                    Creative,
+                   Confira alguns dos meus trabalhos
                     <br />
-                    Passionate &
+                     &
                     <br />
-                    Artistic
+                    Depoimentos de Clientes
                   </h3>
                   <p className="mt-6 text-base text-gray-600 max-w-md mx-auto lg:mx-0">
                     Cada momento é uma obra de arte esperando para ser capturada. Nossa paixão é transformar suas memórias em tesouros visuais que durarão para sempre.
@@ -66,11 +66,11 @@
                 {/* Decoração Inferior */}
                 <div className="flex justify-center lg:justify-end">
                   <Image
-                    src={''}
+                    src={'https://res.cloudinary.com/dwucy4ffg/image/upload/v1750718062/Jemima_maravilhosa-56_1_p17zv5.jpg'}
                     alt="Decoração floral"
-                    width={70}
-                    height={40}
-                    className="opacity-80 transform -scale-x-100" // Espelha a imagem horizontalmente
+                    width={120}
+                    height={140}
+                    className="opacity-80 transform-scale-x-100 rounded-2xl" // Espelha a imagem horizontalmente
                   />
                 </div>
 
